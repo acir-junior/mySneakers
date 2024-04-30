@@ -1,0 +1,57 @@
+version: '2'
+services:
+    mysnk-db:
+        container_name: mysnk-db
+        image: mongo:latest
+        restart: always
+        networks:
+            - mysnk-back
+        ports:
+            - "27017:27017"
+        volumes:
+            - mysnk-db:/data/db
+
+    mysnk-backend:    
+        container_name: mysnk-backend
+        build: ./mysnk-backend
+        networks:
+            - mysnk-back
+        restart: always
+        ports:
+            - 8001:8001
+        depends_on:
+            - mysnk-db
+        env_file:
+            - ./mysnk-backend/.env
+
+    mysnk-frontend:
+        container_name: mysnk-frontend
+        build: ./mysnk-frontend
+        networks:
+            - mysnk-front
+        volumes:
+            - mysnk-front:/var/www/html
+        env_file:
+            - ./mysnk-frontend/.env
+
+    mysnk-ngnix:
+        container_name: mysnk-ngnix
+        build: ./mysnk-ngnix
+        ports:
+            - 80:80
+        volumes:
+            - mysnk-front:/var/www/html
+        depends_on:
+            - mysnk-db
+            - mysnk-backend
+            - mysnk-frontend
+
+networks:
+    mysnk-back:
+        driver: bridge
+    mysnk-front:
+        driver: bridge
+
+volumes:
+    mysnk-db:
+    mysnk-front:
