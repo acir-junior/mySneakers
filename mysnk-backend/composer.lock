@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0d984c10d15008601ff07d0e41cc8197",
+    "content-hash": "da9b7a1dc1dd923105198c572cc7df8d",
     "packages": [
         {
             "name": "brick/math",
@@ -1052,16 +1052,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v11.6.0",
+            "version": "v11.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "e090ee638ebd4ce221d8bad43b49bbf59ea70ae5"
+                "reference": "e5ac72f513f635f208024aa76b8a04efc1b47f93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/e090ee638ebd4ce221d8bad43b49bbf59ea70ae5",
-                "reference": "e090ee638ebd4ce221d8bad43b49bbf59ea70ae5",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/e5ac72f513f635f208024aa76b8a04efc1b47f93",
+                "reference": "e5ac72f513f635f208024aa76b8a04efc1b47f93",
                 "shasum": ""
             },
             "require": {
@@ -1253,7 +1253,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-04-30T13:30:08+00:00"
+            "time": "2024-05-07T13:41:51+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -1833,180 +1833,6 @@
             "time": "2024-01-28T23:22:08+00:00"
         },
         {
-            "name": "mongodb/laravel-mongodb",
-            "version": "4.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mongodb/laravel-mongodb.git",
-                "reference": "64d6dc05a8f08d9cf09f6b2d54f891a1692f6181"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mongodb/laravel-mongodb/zipball/64d6dc05a8f08d9cf09f6b2d54f891a1692f6181",
-                "reference": "64d6dc05a8f08d9cf09f6b2d54f891a1692f6181",
-                "shasum": ""
-            },
-            "require": {
-                "composer-runtime-api": "^2.0.0",
-                "ext-mongodb": "^1.15",
-                "illuminate/cache": "^10.36|^11",
-                "illuminate/container": "^10.0|^11",
-                "illuminate/database": "^10.30|^11",
-                "illuminate/events": "^10.0|^11",
-                "illuminate/support": "^10.0|^11",
-                "mongodb/mongodb": "^1.15",
-                "php": "^8.1"
-            },
-            "replace": {
-                "jenssegers/mongodb": "self.version"
-            },
-            "require-dev": {
-                "doctrine/coding-standard": "12.0.x-dev",
-                "mockery/mockery": "^1.4.4",
-                "mongodb/builder": "^0.2",
-                "orchestra/testbench": "^8.0|^9.0",
-                "phpstan/phpstan": "^1.10",
-                "phpunit/phpunit": "^10.3",
-                "spatie/laravel-query-builder": "^5.6"
-            },
-            "suggest": {
-                "mongodb/builder": "Provides a fluent aggregation builder for MongoDB pipelines"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "MongoDB\\Laravel\\MongoDBServiceProvider",
-                        "MongoDB\\Laravel\\MongoDBQueueServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "MongoDB\\Laravel\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Andreas Braun",
-                    "email": "andreas.braun@mongodb.com",
-                    "role": "Leader"
-                },
-                {
-                    "name": "Jérôme Tamarelle",
-                    "email": "jerome.tamarelle@mongodb.com",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Jeremy Mikola",
-                    "email": "jmikola@gmail.com",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Jens Segers",
-                    "homepage": "https://jenssegers.com",
-                    "role": "Creator"
-                }
-            ],
-            "description": "A MongoDB based Eloquent model and Query builder for Laravel",
-            "homepage": "https://github.com/mongodb/laravel-mongodb",
-            "keywords": [
-                "database",
-                "eloquent",
-                "laravel",
-                "model",
-                "mongo",
-                "mongodb"
-            ],
-            "support": {
-                "issues": "https://www.mongodb.com/support",
-                "security": "https://www.mongodb.com/security",
-                "source": "https://github.com/mongodb/laravel-mongodb/tree/4.3.0"
-            },
-            "time": "2024-04-26T15:53:27+00:00"
-        },
-        {
-            "name": "mongodb/mongodb",
-            "version": "1.18.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mongodb/mongo-php-library.git",
-                "reference": "d421c418ef56a96f3dfa6b2828f936df6848ccf9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mongodb/mongo-php-library/zipball/d421c418ef56a96f3dfa6b2828f936df6848ccf9",
-                "reference": "d421c418ef56a96f3dfa6b2828f936df6848ccf9",
-                "shasum": ""
-            },
-            "require": {
-                "composer-runtime-api": "^2.0",
-                "ext-hash": "*",
-                "ext-json": "*",
-                "ext-mongodb": "^1.18.0",
-                "php": "^7.4 || ^8.0",
-                "psr/log": "^1.1.4|^2|^3",
-                "symfony/polyfill-php80": "^1.27",
-                "symfony/polyfill-php81": "^1.27"
-            },
-            "require-dev": {
-                "doctrine/coding-standard": "^12.0",
-                "rector/rector": "^0.19",
-                "squizlabs/php_codesniffer": "^3.7",
-                "symfony/phpunit-bridge": "^5.2",
-                "vimeo/psalm": "^5.13"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.18.x-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/functions.php"
-                ],
-                "psr-4": {
-                    "MongoDB\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Andreas Braun",
-                    "email": "andreas.braun@mongodb.com"
-                },
-                {
-                    "name": "Jeremy Mikola",
-                    "email": "jmikola@gmail.com"
-                },
-                {
-                    "name": "Jérôme Tamarelle",
-                    "email": "jerome.tamarelle@mongodb.com"
-                }
-            ],
-            "description": "MongoDB driver library",
-            "homepage": "https://jira.mongodb.org/browse/PHPLIB",
-            "keywords": [
-                "database",
-                "driver",
-                "mongodb",
-                "persistence"
-            ],
-            "support": {
-                "issues": "https://github.com/mongodb/mongo-php-library/issues",
-                "source": "https://github.com/mongodb/mongo-php-library/tree/1.18.0"
-            },
-            "time": "2024-03-27T17:04:50+00:00"
-        },
-        {
             "name": "monolog/monolog",
             "version": "3.6.0",
             "source": {
@@ -2109,16 +1935,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "3.3.0",
+            "version": "3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "7219739c4e01d4680c980545821733b6ed8ee880"
+                "reference": "8ff64b92c1b1ec84fcde9f8bb9ff2ca34cb8a77a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/7219739c4e01d4680c980545821733b6ed8ee880",
-                "reference": "7219739c4e01d4680c980545821733b6ed8ee880",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/8ff64b92c1b1ec84fcde9f8bb9ff2ca34cb8a77a",
+                "reference": "8ff64b92c1b1ec84fcde9f8bb9ff2ca34cb8a77a",
                 "shasum": ""
             },
             "require": {
@@ -2211,7 +2037,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-18T16:35:06+00:00"
+            "time": "2024-05-01T06:54:22+00:00"
         },
         {
             "name": "nette/schema",
@@ -3532,16 +3358,16 @@
         },
         {
             "name": "symfony/deprecation-contracts",
-            "version": "v3.4.0",
+            "version": "v3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "7c3aff79d10325257a001fcf92d991f24fc967cf"
+                "reference": "0e0d29ce1f20deffb4ab1b016a7257c4f1e789a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/7c3aff79d10325257a001fcf92d991f24fc967cf",
-                "reference": "7c3aff79d10325257a001fcf92d991f24fc967cf",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/0e0d29ce1f20deffb4ab1b016a7257c4f1e789a1",
+                "reference": "0e0d29ce1f20deffb4ab1b016a7257c4f1e789a1",
                 "shasum": ""
             },
             "require": {
@@ -3550,7 +3376,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "3.4-dev"
+                    "dev-main": "3.5-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -3579,7 +3405,7 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.4.0"
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.5.0"
             },
             "funding": [
                 {
@@ -3595,7 +3421,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-05-23T14:45:45+00:00"
+            "time": "2024-04-18T09:32:20+00:00"
         },
         {
             "name": "symfony/error-handler",
@@ -3754,16 +3580,16 @@
         },
         {
             "name": "symfony/event-dispatcher-contracts",
-            "version": "v3.4.2",
+            "version": "v3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher-contracts.git",
-                "reference": "4e64b49bf370ade88e567de29465762e316e4224"
+                "reference": "8f93aec25d41b72493c6ddff14e916177c9efc50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher-contracts/zipball/4e64b49bf370ade88e567de29465762e316e4224",
-                "reference": "4e64b49bf370ade88e567de29465762e316e4224",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher-contracts/zipball/8f93aec25d41b72493c6ddff14e916177c9efc50",
+                "reference": "8f93aec25d41b72493c6ddff14e916177c9efc50",
                 "shasum": ""
             },
             "require": {
@@ -3773,7 +3599,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "3.4-dev"
+                    "dev-main": "3.5-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -3810,7 +3636,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v3.4.2"
+                "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v3.5.0"
             },
             "funding": [
                 {
@@ -3826,7 +3652,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-01-23T14:51:35+00:00"
+            "time": "2024-04-18T09:32:20+00:00"
         },
         {
             "name": "symfony/finder",
@@ -4802,82 +4628,6 @@
             "time": "2024-01-29T20:11:03+00:00"
         },
         {
-            "name": "symfony/polyfill-php81",
-            "version": "v1.29.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php81.git",
-                "reference": "c565ad1e63f30e7477fc40738343c62b40bc672d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php81/zipball/c565ad1e63f30e7477fc40738343c62b40bc672d",
-                "reference": "c565ad1e63f30e7477fc40738343c62b40bc672d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1"
-            },
-            "type": "library",
-            "extra": {
-                "thanks": {
-                    "name": "symfony/polyfill",
-                    "url": "https://github.com/symfony/polyfill"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ],
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php81\\": ""
-                },
-                "classmap": [
-                    "Resources/stubs"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony polyfill backporting some PHP 8.1+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php81/tree/v1.29.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2024-01-29T20:11:03+00:00"
-        },
-        {
             "name": "symfony/polyfill-php83",
             "version": "v1.29.0",
             "source": {
@@ -5177,21 +4927,22 @@
         },
         {
             "name": "symfony/service-contracts",
-            "version": "v3.4.2",
+            "version": "v3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "11bbf19a0fb7b36345861e85c5768844c552906e"
+                "reference": "bd1d9e59a81d8fa4acdcea3f617c581f7475a80f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/11bbf19a0fb7b36345861e85c5768844c552906e",
-                "reference": "11bbf19a0fb7b36345861e85c5768844c552906e",
+                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/bd1d9e59a81d8fa4acdcea3f617c581f7475a80f",
+                "reference": "bd1d9e59a81d8fa4acdcea3f617c581f7475a80f",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.1",
-                "psr/container": "^1.1|^2.0"
+                "psr/container": "^1.1|^2.0",
+                "symfony/deprecation-contracts": "^2.5|^3"
             },
             "conflict": {
                 "ext-psr": "<1.1|>=2"
@@ -5199,7 +4950,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "3.4-dev"
+                    "dev-main": "3.5-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -5239,7 +4990,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/service-contracts/tree/v3.4.2"
+                "source": "https://github.com/symfony/service-contracts/tree/v3.5.0"
             },
             "funding": [
                 {
@@ -5255,7 +5006,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-12-19T21:51:00+00:00"
+            "time": "2024-04-18T09:32:20+00:00"
         },
         {
             "name": "symfony/string",
@@ -5439,16 +5190,16 @@
         },
         {
             "name": "symfony/translation-contracts",
-            "version": "v3.4.2",
+            "version": "v3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation-contracts.git",
-                "reference": "43810bdb2ddb5400e5c5e778e27b210a0ca83b6b"
+                "reference": "b9d2189887bb6b2e0367a9fc7136c5239ab9b05a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/43810bdb2ddb5400e5c5e778e27b210a0ca83b6b",
-                "reference": "43810bdb2ddb5400e5c5e778e27b210a0ca83b6b",
+                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/b9d2189887bb6b2e0367a9fc7136c5239ab9b05a",
+                "reference": "b9d2189887bb6b2e0367a9fc7136c5239ab9b05a",
                 "shasum": ""
             },
             "require": {
@@ -5457,7 +5208,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "3.4-dev"
+                    "dev-main": "3.5-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -5497,7 +5248,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/translation-contracts/tree/v3.4.2"
+                "source": "https://github.com/symfony/translation-contracts/tree/v3.5.0"
             },
             "funding": [
                 {
@@ -5513,7 +5264,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-01-23T14:51:35+00:00"
+            "time": "2024-04-18T09:32:20+00:00"
         },
         {
             "name": "symfony/uid",
@@ -8025,16 +7776,16 @@
         },
         {
             "name": "spatie/flare-client-php",
-            "version": "1.4.4",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/flare-client-php.git",
-                "reference": "17082e780752d346c2db12ef5d6bee8e835e399c"
+                "reference": "e27977d534eefe04c154c6fd8460217024054c05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/flare-client-php/zipball/17082e780752d346c2db12ef5d6bee8e835e399c",
-                "reference": "17082e780752d346c2db12ef5d6bee8e835e399c",
+                "url": "https://api.github.com/repos/spatie/flare-client-php/zipball/e27977d534eefe04c154c6fd8460217024054c05",
+                "reference": "e27977d534eefe04c154c6fd8460217024054c05",
                 "shasum": ""
             },
             "require": {
@@ -8082,7 +7833,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/flare-client-php/issues",
-                "source": "https://github.com/spatie/flare-client-php/tree/1.4.4"
+                "source": "https://github.com/spatie/flare-client-php/tree/1.5.1"
             },
             "funding": [
                 {
@@ -8090,20 +7841,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-01-31T14:18:45+00:00"
+            "time": "2024-05-03T15:43:14+00:00"
         },
         {
             "name": "spatie/ignition",
-            "version": "1.14.0",
+            "version": "1.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/ignition.git",
-                "reference": "80385994caed328f6f9c9952926932e65b9b774c"
+                "reference": "c23cc018c5f423d2f413b99f84655fceb6549811"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/ignition/zipball/80385994caed328f6f9c9952926932e65b9b774c",
-                "reference": "80385994caed328f6f9c9952926932e65b9b774c",
+                "url": "https://api.github.com/repos/spatie/ignition/zipball/c23cc018c5f423d2f413b99f84655fceb6549811",
+                "reference": "c23cc018c5f423d2f413b99f84655fceb6549811",
                 "shasum": ""
             },
             "require": {
@@ -8173,20 +7924,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-04-26T08:45:51+00:00"
+            "time": "2024-05-03T15:56:16+00:00"
         },
         {
             "name": "spatie/laravel-ignition",
-            "version": "2.6.2",
+            "version": "2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-ignition.git",
-                "reference": "42d986f4ab9d667020264a7481190a4606ebbeb0"
+                "reference": "f52124d50122611e8a40f628cef5c19ff6cc5b57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-ignition/zipball/42d986f4ab9d667020264a7481190a4606ebbeb0",
-                "reference": "42d986f4ab9d667020264a7481190a4606ebbeb0",
+                "url": "https://api.github.com/repos/spatie/laravel-ignition/zipball/f52124d50122611e8a40f628cef5c19ff6cc5b57",
+                "reference": "f52124d50122611e8a40f628cef5c19ff6cc5b57",
                 "shasum": ""
             },
             "require": {
@@ -8195,7 +7946,7 @@
                 "ext-mbstring": "*",
                 "illuminate/support": "^10.0|^11.0",
                 "php": "^8.1",
-                "spatie/flare-client-php": "^1.3.5",
+                "spatie/flare-client-php": "^1.5",
                 "spatie/ignition": "^1.14",
                 "symfony/console": "^6.2.3|^7.0",
                 "symfony/var-dumper": "^6.2.3|^7.0"
@@ -8265,7 +8016,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-04-30T13:56:21+00:00"
+            "time": "2024-05-02T13:42:49+00:00"
         },
         {
             "name": "symfony/yaml",
