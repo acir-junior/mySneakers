@@ -32,7 +32,7 @@ WORKDIR /var/www/html
 
 RUN chown -R www-data:www-data /var/www/html
 
-RUN composer install --no-scripts --no-autoloader --ignore-platform-req=ext-mongodb
+RUN composer install --no-scripts --no-autoloader --ignore-platform-reqs
 
 RUN chmod +x artisan
 
