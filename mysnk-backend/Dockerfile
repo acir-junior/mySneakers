@@ -1,7 +1,6 @@
-FROM php:8.2-fpm
+FROM php:8.2-cli
 
 #     php8.2-mongodb
-
 RUN apt-get update && apt-get install -y \
     build-essential \
     libssl-dev \
@@ -10,6 +9,8 @@ RUN apt-get update && apt-get install -y \
     libfreetype6-dev \
     libonig-dev \
     libzip-dev zlib1g-dev \
+    libz-dev \
+    libpq-dev \
     jpegoptim optipng pngquant gifsicle \
     locales \
     zip \
@@ -18,7 +19,8 @@ RUN apt-get update && apt-get install -y \
     git \
     curl
 
-RUN docker-php-ext-install pdo zip exif pcntl
+RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql
+RUN docker-php-ext-install pdo zip exif pcntl pgsql pdo_pgsql
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
