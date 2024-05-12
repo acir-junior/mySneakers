@@ -11,14 +11,29 @@ services:
     #     volumes:
     #         - mysnk-db:/data/db
 
+    mysnk-db:
+        container_name: mysnk-db
+        image: postgres:latest
+        environment:
+            POSTGRES_DB: 'mysneakersdb'
+            POSTGRES_PASSWORD: 'root'
+            POSTGRES_USER: 'root'
+        ports:
+            - '5432:5432'
+        volumes:
+            - /mysnk-backend:/var/www/html
+            - ./mysnk-backend/mysneakersdb/pgdata:/var/lib/postgresql
+        networks:
+            - mysnk-server-back
+
     mysnk-backend:    
         container_name: mysnk-backend
         build: ./mysnk-backend
         restart: always
         ports:
             - 8001:8001
-        # depends_on:
-        #     - mysnk-db
+        depends_on:
+            - mysnk-db
         env_file:
             - ./mysnk-backend/.env
         tty: true

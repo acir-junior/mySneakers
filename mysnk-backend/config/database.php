@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'sqlite'),
+    'default' => env('DB_CONNECTION', 'postgres'),
 
     /*
     |--------------------------------------------------------------------------
@@ -82,11 +82,11 @@ return [
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DB_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'laravel'),
+            'database' => env('DB_DATABASE', 'mysneakersdb'),
             'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', ''),
+            'password' => env('DB_PASSWORD', 'root'),
             'charset' => env('DB_CHARSET', 'utf8'),
             'prefix' => '',
             'prefix_indexes' => true,
@@ -109,11 +109,11 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
-        'mongodb' => [
-            'driver' => 'mongodb',
-            'dsn' => env('DB_URI', 'mongodb://localhost:27017/mysnk-db'),
-            'database' => 'mysneakersdb'
-        ]
+        // 'mongodb' => [
+        //     'driver' => 'mongodb',
+        //     'dsn' => env('DB_URI', 'mongodb://localhost:27017/mysnk-db'),
+        //     'database' => 'mysneakersdb'
+        // ]
 
     ],
 
