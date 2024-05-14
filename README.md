@@ -3,6 +3,6 @@ Projeto de estudo, que será robusto, utilizando boas praticas de programação,
 
 # Informações importantes
 [1] - Instalar os pacotes a parte do JWT para autenticação, adiciona-los dentro do container do backend após subi-lo
-comando: **docker exec -it mysnk-backend bash**
-comando: **composer require php-open-source-save/jwt-auth** e adicionar o JWT nos provider do backend 
-comando: **php artisan vendor:publish --provider="PHPOpenSourceSaver\JWTAuth\Providers\LaravelServiceProvider"** 
+com o comando: **docker exec -it mysnk-backend bash**
+com o comando: **composer require php-open-source-save/jwt-auth** e adicionar o JWT nos provider do backend 
+com o comando: **php artisan vendor:publish --provider="PHPOpenSourceSaver\JWTAuth\Providers\LaravelServiceProvider"** 
