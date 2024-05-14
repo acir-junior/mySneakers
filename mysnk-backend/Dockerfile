@@ -1,6 +1,5 @@
 FROM php:8.2-cli
 
-#     php8.2-mongodb
 RUN apt-get update && apt-get install -y \
     build-essential \
     libssl-dev \
@@ -39,7 +38,6 @@ RUN composer install --no-scripts --no-autoloader --ignore-platform-req=ext-mong
 RUN chmod +x artisan
 
 RUN php artisan route:cache
-# RUN php artisan optimize:clear
 RUN php artisan config:cache
 
 CMD php artisan serve --host=0.0.0.0 --port=8001
