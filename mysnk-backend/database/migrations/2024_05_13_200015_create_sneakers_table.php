@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('brand');
             $table->mediumText('description_sneakers');
-            $table->unsignedBigInteger('id_img_sneakers');
-            $table->foreign('id_img_sneakers')->references('id')->on('img_sneakers');
+            // $table->unsignedBigInteger('id_img_sneakers');
+            // $table->foreign('id_img_sneakers')->references('id')->on('img_sneakers');
             $table->timestamps();
         });
     }

@@ -4,19 +4,15 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     libssl-dev \
     libpng-dev \
-    libjpeg62-turbo-dev \
-    libfreetype6-dev \
     libonig-dev \
     libzip-dev zlib1g-dev \
     libz-dev \
     libpq-dev \
     jpegoptim optipng pngquant gifsicle \
-    locales \
+    postgresql-client \
     zip \
-    vim \
     unzip \
-    git \
-    curl
+    curl 
 
 RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql
 RUN docker-php-ext-install pdo zip exif pcntl pgsql pdo_pgsql
@@ -27,19 +23,12 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN rm -rf vendor && rm -rf composer.lock
 
-COPY . /var/www/html
+COPY . /home/backend/app
 
-WORKDIR /var/www/html
+WORKDIR /home/backend/app
 
-RUN chown -R www-data:www-data /var/www/html
+RUN chmod +x /home/backend/app/.docker/start-back.sh
 
-RUN composer install --no-scripts --no-autoloader --ignore-platform-req=ext-mongodb
-
-RUN chmod +x artisan
-
-RUN php artisan route:cache
-RUN php artisan config:cache
-
-CMD php artisan serve --host=0.0.0.0 --port=8001
+CMD [ "/home/backend/app/.docker/start-back.sh" ]
 
 EXPOSE 8001

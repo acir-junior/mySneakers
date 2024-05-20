@@ -1,16 +1,5 @@
 version: '2'
 services:
-    # mysnk-db:
-    #     container_name: mysnk-db
-    #     image: mongo:latest
-    #     restart: always
-    #     networks:
-    #         - mysnk-back
-    #     ports:
-    #         - "27017:27017"
-    #     volumes:
-    #         - mysnk-db:/data/db
-
     mysnk-db:
         container_name: mysnk-db
         image: postgres:latest
@@ -21,12 +10,12 @@ services:
         ports:
             - '5432:5432'
         volumes:
-            - /mysnk-backend:/var/www/html
+            - ./mysnk-backend:/home/backend/app
             - ./mysnk-backend/mysneakersdb/pgdata:/var/lib/postgresql
         networks:
-            - mysnk-server-back
+            - mysnk-server
 
-    mysnk-backend:    
+    mysnk-backend:
         container_name: mysnk-backend
         build: ./mysnk-backend
         restart: always
@@ -37,43 +26,44 @@ services:
         env_file:
             - ./mysnk-backend/.env
         tty: true
-        working_dir: /var/www/html
+        working_dir: /home/backend/app
         volumes:
-            - ./mysnk-backend:/var/www/html
+            - ./mysnk-backend:/home/backend/app
             - ./mysnk-backend/php/local.ini:/usr/local/etc/php/conf.d/local.ini
         networks:
-            - mysnk-server-back
+            - mysnk-server
 
-    # mysnk-frontend:
-    #     container_name: mysnk-frontend
-    #     build: ./mysnk-frontend
-    #     networks:
-    #         - mysnk-front
-    #     volumes:
-    #         - mysnk-front:/var/www/html
-    #     env_file:
-    #         - ./mysnk-frontend/.env
+    mysnk-frontend:
+        container_name: mysnk-frontend
+        build: ./mysnk-frontend
+        restart: always
+        ports:
+            - 5173:5173
+        volumes:
+            - ./mysnk-frontend:/home/frontend/app
+        env_file:
+            - ./mysnk-frontend/.env
+        networks:
+            - mysnk-server
 
-    ngnix-server-back:
-        image: nginx:alpine
-        container_name: ngnix-server-back
+    ngnix-server:
+        build: ./mysnk-ngnix
+        container_name: ngnix-server
         restart: always
         tty: true
         ports:
             - "80:80"
             - "443:443"
         volumes:
-            - ./mysnk-backend:/var/www/html
-            - ./mysnk-backend/nginx/conf.d/:/etc/nginx/conf.d/
+            - ./mysnk-backend:/home/backend/app
+            - ./mysnk-frontend:/home/frontend/app
         networks:
-            - mysnk-server-back
+            - mysnk-server
+        depends_on:
+            - mysnk-backend
+            - mysnk-frontend
 
 networks:
-    mysnk-server-back:
+    mysnk-server:
         driver: bridge
-    # mysnk-server-front:
-    #     driver: bridge
-
-# volumes:
-    # mysnk-db:
-    # mysnk-front:
+    
