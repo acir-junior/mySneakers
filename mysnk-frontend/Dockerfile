@@ -1,21 +1,15 @@
-FROM node:latest
+FROM node:20-slim
 
-WORKDIR /tmp/react
+COPY --chown=1000:1000 package*.json ./
 
-COPY . .
+RUN rm -rf node_modules && rm -rf package-lock.json
 
-RUN rm -rf node_modules
+WORKDIR /home/frontend/app
 
-RUN npm install
+COPY . /home/frontend/app
 
-RUN npm run build
+RUN chmod +x /home/frontend/app/.docker/start-front.sh
 
-RUN mkdir -p /var/www/html
+CMD [ "bash", "/home/frontend/app/.docker/start-front.sh" ]
 
-RUN mv dist/* /var/www/html
-
-VOLUME /var/www/html
-
-WORKDIR /
-
-RUN rm -rf /tmp/react
+EXPOSE 5173
