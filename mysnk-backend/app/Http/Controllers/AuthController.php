@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -55,17 +56,21 @@ class AuthController extends Controller
             "status" => true,
             "message" => "User logged In",
             "token" => $token,
-            "expires_in" => auth()->factory()->getTTL() * 60
+            // "expires_in" => auth()->factory()->getTTL() * 60,
+            "expires_in" => Auth::factory()->getTTL() * 60
         ]);
     }
 
     public function refreshUserToken()
     {
-        $token = auth()->refresh();
+        $token = Auth::refresh();
+        // $token = auth()->refresh();
+
         return response()->json([
             "status" => true,
             "token" => $token,
-            "expires_in" => auth()->factory()->getTTL() * 60
+            // "expires_in" => auth()->factory()->getTTL() * 60,
+            "expires_in" => Auth::factory()->getTTL() * 60
         ]);
     }
 }
