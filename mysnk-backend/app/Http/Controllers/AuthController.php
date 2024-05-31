@@ -13,22 +13,26 @@ class AuthController extends Controller
      */
     public function userRegister(Request $request)
     {
-        $request->validate([
-            "name" => "required|string",
-            "email" => "required|string|email|unique:users",
-            "password" => "required|confirmed"
-        ]);
-        
-        User::create([
-            "name" => $request->name,
-            "email" => $request->email,
-            "password" => bcrypt($request->password)
-        ]);
-
-        return response()->json([
-            "status" => true,
-            "message" => "User created successfully",
-        ]);
+        try {
+            $request->validate([
+                "name" => "required|string",
+                "email" => "required|string|email|unique:users",
+                "password" => "required"
+            ]);
+            
+            User::create([
+                "name" => $request->name,
+                "email" => $request->email,
+                "password" => $request->password
+            ]);
+    
+            return response()->json([
+                "status" => true,
+                "message" => "User created successfully",
+            ]);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**

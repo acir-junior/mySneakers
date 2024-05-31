@@ -1,5 +1,5 @@
-import { AuthService } from "../../domain/services/AuthService";
-import { ILoginUser } from "../../types/LoginUser.interface";
+import { AuthService } from "../../../domain/services/login/AuthService";
+import { ILoginUser } from "../../../types/LoginUser.interfaces";
 
 export class LoginUserCase {
     constructor(
