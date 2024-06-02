@@ -5,13 +5,6 @@ import LoginPage from './ui/pages/login/LoginPage.tsx'
 import RegisterUserPage from './ui/pages/login/RegisterUserPage.tsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
-{/* <Router>
-            <Routes>
-                <Route path='/' element={<Navigate to="/login" />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/registerUser" element={<RegisterUserPage />} />
-            </Routes>
-        </Router> */}
 
 const router = createBrowserRouter([
 	{

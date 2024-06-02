@@ -16,7 +16,7 @@ export default function SnackBar({ visible, message, navigateTo }: ISnackBar) {
     }
 
     return (
-        <Snackbar open={visible} autoHideDuration={6000} onClose={closeSnack}>
+        <Snackbar open={visible} autoHideDuration={5000} onClose={closeSnack} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
             <Alert
                 onClose={closeSnack}
                 severity="success"

@@ -62,7 +62,7 @@ export default function RegisterUserForm ({ onRegisterUser }: IRegisterUserProps
                                     { ...register('name') }
                                     autoFocus
                                 />
-                                { errors.name && <span>{ errors.name.message }</span> }
+                                { errors.name && <span className="text-red-600">{ errors.name.message }</span> }
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField
@@ -74,7 +74,7 @@ export default function RegisterUserForm ({ onRegisterUser }: IRegisterUserProps
                                     autoComplete="email"
                                     { ...register('email') }
                                 />
-                                { errors.email && <span>{ errors.email.message }</span> }
+                                { errors.email && <span className="text-red-600">{ errors.email.message }</span> }
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField
@@ -86,7 +86,7 @@ export default function RegisterUserForm ({ onRegisterUser }: IRegisterUserProps
                                     autoComplete="new-password"
                                     { ...register('password') }
                                 />
-                                { errors.password && <span>{ errors.password.message }</span> }
+                                { errors.password && <span className="text-red-600">{ errors.password.message }</span> }
                             </Grid>
                         </Grid>
                         <Button
