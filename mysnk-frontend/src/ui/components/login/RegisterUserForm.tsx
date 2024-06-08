@@ -16,6 +16,7 @@ import { Copyright } from "@mui/icons-material";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerUserSchema } from "../../schemas/login/RegisterUserSchema";
+import { Link } from "react-router-dom";
 
 
 export default function RegisterUserForm ({ onRegisterUser }: IRegisterUserProps) {
@@ -97,6 +98,9 @@ export default function RegisterUserForm ({ onRegisterUser }: IRegisterUserProps
                         >
                             Cadastre-se
                         </Button>
+                        <Link to="../login" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                            Voltar ao login
+                        </Link>
                     </Box>
                 </Box>
                 <Copyright sx={{ mt: 5 }} />

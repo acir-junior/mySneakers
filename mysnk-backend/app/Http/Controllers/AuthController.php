@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -45,6 +46,13 @@ class AuthController extends Controller
             "password" => "required"
         ]);
 
+        dd([
+            'pass_enc' => $request->password,
+            // 'pass_dec' => decrypt($request->password),
+            'test_enc' => encrypt("An@Julia07")
+        ]);
+        $user = DB::table('users')->where('email', $request->email)->first();
+
         $token = auth()->attempt([
             "email" => $request->email,
             "password" => $request->password
@@ -60,7 +68,6 @@ class AuthController extends Controller
             "status" => true,
             "message" => "User logged In",
             "token" => $token,
-            // "expires_in" => auth()->factory()->getTTL() * 60,
             "expires_in" => Auth::factory()->getTTL() * 60
         ]);
     }
@@ -68,12 +75,10 @@ class AuthController extends Controller
     public function refreshUserToken()
     {
         $token = Auth::refresh();
-        // $token = auth()->refresh();
 
         return response()->json([
             "status" => true,
             "token" => $token,
-            // "expires_in" => auth()->factory()->getTTL() * 60,
             "expires_in" => Auth::factory()->getTTL() * 60
         ]);
     }

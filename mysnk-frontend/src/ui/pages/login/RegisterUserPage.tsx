@@ -10,7 +10,7 @@ const registerUserService = new RegisterUserService();
 const registerUserCase = new RegisterUserCase(registerUserService);
 
 export default function RegisterUserPage() {
-    const [snackBar, setSnackbar] = useState({ visible: false, message: '', navigateTo: ''}); 
+    const [snackBar, setSnackbar] = useState({ visible: false, message: '', navigateTo: ''});
 
     async function handleRegisterUser(data: RegisterUserFormData) {
         try {

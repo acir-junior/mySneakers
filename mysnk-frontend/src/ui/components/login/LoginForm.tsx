@@ -1,17 +1,23 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { ILoginFormProps } from "../../../types/LoginUser.interfaces";
+import { ILoginFormProps, LoginFormData } from "../../../types/LoginUser.interfaces";
 import { ThemeProvider } from "styled-components";
 import { Avatar, Box, Button, Checkbox, Container, CssBaseline, FormControlLabel, Grid, TextField, Typography, createTheme } from "@mui/material";
 import { Copyright, LockOutlined } from "@mui/icons-material";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { loginSchema } from "../../schemas/login/LoginSchema";
 
-const LoginForm: React.FC<ILoginFormProps> = ({ onLogin }) => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+export default function LoginForm({ onLogin }: ILoginFormProps) {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors }
+    } = useForm<LoginFormData>({
+        resolver: zodResolver(loginSchema)
+    })
 
-    const isLoginIn = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        onLogin(email, password);
+    async function handleSubmitForm(data: LoginFormData) {
+        onLogin(data);
     }
 
     return (
@@ -32,31 +38,29 @@ const LoginForm: React.FC<ILoginFormProps> = ({ onLogin }) => {
                     <Typography component="h1" variant="h5">
                         Sign in
                     </Typography>
-                    <Box component="form" onSubmit={isLoginIn} noValidate sx={{ mt: 1 }}>
+                    <Box component="form" onSubmit={handleSubmit(handleSubmitForm)} noValidate sx={{ mt: 1 }}>
                         <TextField
                             margin="normal"
                             required
                             fullWidth
                             id="email"
                             label="Email Address"
-                            name="email"
                             autoComplete="email"
                             autoFocus
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            { ...register('email') }
                         />
+                        { errors.email && <span className="text-red-600">{ errors.email.message }</span> }
                         <TextField
                             margin="normal"
                             required
                             fullWidth
-                            name="password"
                             label="Password"
                             type="password"
                             id="password"
                             autoComplete="current-password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            { ...register('password') }
                         />
+                        { errors.password && <span className="text-red-600">{ errors.password.message }</span> }
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary" />}
                             label="Remember me"
@@ -84,5 +88,3 @@ const LoginForm: React.FC<ILoginFormProps> = ({ onLogin }) => {
         </ThemeProvider>
     );
 }
-
-export default LoginForm
