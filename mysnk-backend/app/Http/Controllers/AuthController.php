@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -20,11 +21,11 @@ class AuthController extends Controller
                 "email" => "required|string|email|unique:users",
                 "password" => "required"
             ]);
-            
+
             User::create([
                 "name" => $request->name,
                 "email" => $request->email,
-                "password" => $request->password
+                "password" => bcrypt($request->password)
             ]);
     
             return response()->json([
@@ -46,12 +47,13 @@ class AuthController extends Controller
             "password" => "required"
         ]);
 
-        dd([
-            'pass_enc' => $request->password,
-            // 'pass_dec' => decrypt($request->password),
-            'test_enc' => encrypt("An@Julia07")
-        ]);
         $user = DB::table('users')->where('email', $request->email)->first();
+        if (empty(Hash::check($request->password, $user->password))) {
+            return response()->json([
+                "status" => false,
+                "message" => "Data user invalid"
+            ], 400);
+        }
 
         $token = auth()->attempt([
             "email" => $request->email,
