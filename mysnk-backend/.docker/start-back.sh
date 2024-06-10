@@ -10,15 +10,6 @@ if [ ! -f ".env" ]; then
     cp .env.example .env
 fi
 
-# function check_dependency {
-#     if grep -q '"php-open-source-save/jwt-auth"' composer.lock; then
-#         echo "JWT já instalado."
-#     else
-#         composer require php-open-source-save/jwt-auth
-#     fi
-# }
-# check_dependency
-
 function wait_for_postgres {
     DB_HOST=${DB_HOST:-mysnk-db}
     DB_PORT=${DB_PORT:-5432}

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -13,22 +15,26 @@ class AuthController extends Controller
      */
     public function userRegister(Request $request)
     {
-        $request->validate([
-            "name" => "required|string",
-            "email" => "required|string|email|unique:users",
-            "password" => "required|confirmed"
-        ]);
-        
-        User::create([
-            "name" => $request->name,
-            "email" => $request->email,
-            "password" => bcrypt($request->password)
-        ]);
+        try {
+            $request->validate([
+                "name" => "required|string",
+                "email" => "required|string|email|unique:users",
+                "password" => "required"
+            ]);
 
-        return response()->json([
-            "status" => true,
-            "message" => "User created successfully",
-        ]);
+            User::create([
+                "name" => $request->name,
+                "email" => $request->email,
+                "password" => bcrypt($request->password)
+            ]);
+    
+            return response()->json([
+                "status" => true,
+                "message" => "User created successfully",
+            ]);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
@@ -40,6 +46,14 @@ class AuthController extends Controller
             "email" => "required|email",
             "password" => "required"
         ]);
+
+        $user = DB::table('users')->where('email', $request->email)->first();
+        if (empty(Hash::check($request->password, $user->password))) {
+            return response()->json([
+                "status" => false,
+                "message" => "Data user invalid"
+            ], 400);
+        }
 
         $token = auth()->attempt([
             "email" => $request->email,
@@ -56,7 +70,6 @@ class AuthController extends Controller
             "status" => true,
             "message" => "User logged In",
             "token" => $token,
-            // "expires_in" => auth()->factory()->getTTL() * 60,
             "expires_in" => Auth::factory()->getTTL() * 60
         ]);
     }
@@ -64,12 +77,10 @@ class AuthController extends Controller
     public function refreshUserToken()
     {
         $token = Auth::refresh();
-        // $token = auth()->refresh();
 
         return response()->json([
             "status" => true,
             "token" => $token,
-            // "expires_in" => auth()->factory()->getTTL() * 60,
             "expires_in" => Auth::factory()->getTTL() * 60
         ]);
     }

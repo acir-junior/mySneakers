@@ -1,4 +1,4 @@
-import { ILoginUser } from "../../types/LoginUser.interface";
+import { ILoginUser } from "../../../types/LoginUser.interfaces";
 
 export class LoginUser implements ILoginUser {
     constructor(
