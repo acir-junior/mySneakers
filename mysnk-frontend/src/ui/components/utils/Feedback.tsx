@@ -1,29 +1,41 @@
-import { Alert, Snackbar } from "@mui/material";
+import { IconButton, Snackbar } from "@mui/material";
 import React from "react";
 import { ISnackBar } from "../../../types/SnackBar.interface";
 import { useNavigate } from "react-router-dom";
+import { Close } from "@mui/icons-material";
 
 export default function SnackBar({ visible, message, navigateTo }: ISnackBar) {
     const navigate = useNavigate();
     const [open, setOpen] = React.useState({ visible: false, message: '' });
-    
+
     const closeSnack = () => {
-        setOpen({ ...open, visible: false });
-        
         if (navigateTo) {
             navigate(navigateTo);
         }
+        setOpen(open);
     }
 
-    return (
-        <Snackbar open={visible} autoHideDuration={5000} onClose={closeSnack} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
-            <Alert
-                onClose={closeSnack}
-                variant="filled"
-                sx={{ width: '100%' }}
+    const action = (
+        <React.Fragment>
+            <IconButton
+                size="small"
+                aria-label="close"
+                color="inherit"
+                onClick={closeSnack}
             >
-                { message }
-            </Alert>
-        </Snackbar>
+                <Close fontSize="small" />
+            </IconButton>
+        </React.Fragment>
+    );
+
+    return (
+        <Snackbar
+            open={visible}
+            autoHideDuration={5000}
+            anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+            message={message}
+            onClose={closeSnack}
+            action={action}
+        />
     )
 }
